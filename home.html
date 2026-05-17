@@ -3,38 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PalmPay - Earn & Withdraw</title>
+    <title>hello</title>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-    
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;900&display=swap');
 
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
         }
 
         body {
-            background-color: #000000;
-            color: white;
-            padding-bottom: 70px;
+            background: #000000;
         }
 
-        .top {
+        #gradient {
             width: 100%;
-            padding: 40px 12px 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
+            height: auto;
         }
 
         .top img {
             width: 80px;
+            padding-left: 12px;
+            padding-top: 40px;
         }
 
         .top p {
+            position: relative;
+            top: -56px;
+            padding-left: 96px;
             font-size: 20px;
         }
 
@@ -43,39 +43,38 @@
             height: 150px;
             margin: 0 auto;
             background: green;
-            border-radius: 12px;
+            border-radius: 8px;
             color: white;
-            padding: 20px 0 0 19px;
+            padding-top: 10px;
         }
 
-        .money h2 {
-            font-size: 32px;
-            margin-top: 8px;
+        .money p, h2 {
+            padding-left: 19px;
         }
 
         .form {
             width: 95%;
-            margin: 25px auto;
+            margin: 0 auto;
+            border-radius: 10px;
+            border: 1px solid green;
             background: #ffffff;
-            border-radius: 12px;
-            border: 2px solid green;
-            padding: 25px 20px;
-            color: #333;
+            padding: 15px;
         }
 
         .input-container {
             position: relative;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .input-container input {
-            width: 100%;
             border: none;
             border-bottom: 2px solid #000;
-            background: transparent;
             outline: none;
-            padding: 8px 0;
+            padding: 5px 0;
             font-size: 16px;
+            width: 90%;
+            margin: 0 auto;
+            display: block;
         }
 
         .input-container input:focus {
@@ -86,194 +85,144 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            pointer-events: none;
             transition: 0.2s ease all;
             font-size: 16px;
-            color: #666;
+            padding-left: 17px;
         }
 
-        .input-container input:focus \~ label,
-        .input-container input:valid \~ label {
-            transform: translateY(-28px);
+        .input-container input:focus ~ label,
+        .input-container input:valid ~ label {
+            transform: translateY(-29px);
             font-size: 14px;
             color: green;
         }
 
         button {
-            width: 100%;
-            max-width: 200px;
-            height: 50px;
-            margin: 20px auto 10px;
+            width: 40%;
+            height: 40px;
+            margin: 0 auto;
             display: block;
             background: green;
-            color: white;
             font-size: 22px;
-            font-weight: 600;
+            color: white;
             border: none;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-
-        center h1 {
-            margin: 20px 0 10px;
-        }
-
-        iframe {
-            border-radius: 8px;
+            border-radius: 6px;
         }
 
         g {
             color: red;
-            font-weight: bold;
         }
 
-        /* Gradient Background */
-        #gradient {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.15;
+        iframe {
+            margin: 0 auto;
+            display: block;
         }
     </style>
 </head>
+
 <body>
 
-    <div id="gradient"></div>
+<div id="gradient"></div>
 
-    <div class="top">
-        <img src="img/top.png" alt="Logo">
-        <div>
-            <p><b>Hello, Valid User</b></p>
-            <p>Good Day.</p>
+<div class="top">
+    <img src="img/top.png" alt="">
+    <p><b>Hello, Valid User</b></p>
+    <p>Good Day.</p>
+</div>
+
+<br>
+
+<div class="money">
+    <p>Available Balance</p>
+    <h2>₦ <span id="number">5500</span></h2>
+</div>
+
+<br><br>
+
+<center>
+    <h1>Watch video to earn money</h1>
+
+    <iframe width="95%" height="315" src="video2.mp4"
+        title="Watch to Earn" frameborder="0" allow="autoplay; encrypted-media;" allowfullscreen>
+    </iframe>
+
+    <br><br>
+    <h4>The more videos you watch, the more your <g>available balance</g> increases</h4>
+</center>
+
+<br><br>
+
+<div class="form">
+    <form id="fundForm">
+        <div class="input-container">
+            <input type="number" id="palmpayNumber" required>
+            <label>Account Number</label>
         </div>
-    </div>
 
-    <div class="money">
-        <p>Available Balance</p>
-        <h2>₦ <span id="number">5500</span></h2>
-    </div>
+        <div class="input-container">
+            <input type="text" id="palmpayName" required>
+            <label>Account Name</label>
+        </div>
 
-    <br><br>
+        <div class="input-container">
+            <input type="text" id="palmpayCome" required>
+            <label>Bank Name</label>
+        </div>
 
-    <center>
-        <h1>Watch video to earn money</h1>
-        <iframe width="95%" height="315" src="video2.mp4" 
-                title="Watch to Earn" frameborder="0" 
-                allow="autoplay; encrypted-media;" allowfullscreen></iframe>
-        <br><br>
-        <h4>The more videos you watch, the more your <g>available balance</g> increases</h4>
-    </center>
+        <div class="input-container">
+            <input type="number" id="amount" required>
+            <label>Amount</label>
+        </div>
 
-    <br><br>
+        <br>
+        <button type="submit">Withdraw</button>
+    </form>
+</div>
 
-    <div class="form">
-        <form id="fundForm">
-            <div class="input-container">
-                <input type="number" id="palmpayNumber" required>
-                <label for="palmpayNumber">Account Number</label>
-            </div>
-            <div class="input-container">
-                <input type="text" id="palmpayName" required>
-                <label for="palmpayName">Account Name</label>
-            </div>
-            <div class="input-container">
-                <input type="text" id="palmpayCome" required>
-                <label for="palmpayCome">Bank Name</label>
-            </div>
-            <div class="input-container">
-                <input type="number" id="amount" required>
-                <label for="amount">Amount</label>
-            </div>
-            <br>
-            <button type="submit">Withdraw</button>
-        </form>
-    </div>
+<br><br><br>
 
-    <script>
-        // Balance Animation
-        let numberElement = document.getElementById('number');
-        let number = localStorage.getItem('number') ? parseInt(localStorage.getItem('number')) : 5500;
+<script>
+    const numberElement = document.getElementById('number');
+    let number = localStorage.getItem('number');
 
-        numberElement.textContent = number.toLocaleString('en-US');
+    if (!number) {
+        number = 5500;
+    } else {
+        number = parseInt(number);
+    }
 
-        function updateNumber() {
-            number += 164;
-            numberElement.textContent = number.toLocaleString('en-US');
-            localStorage.setItem('number', number);
+    numberElement.textContent = number.toLocaleString();
+
+    function updateNumber() {
+        number += 164;
+        numberElement.textContent = number.toLocaleString();
+        localStorage.setItem('number', number);
+    }
+
+    setInterval(updateNumber, 2000);
+
+    document.getElementById('fundForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const amount = parseInt(document.getElementById('amount').value);
+
+        if (amount > number) {
+            alert("You cannot withdraw more than your available balance!");
+            return;
         }
 
-        setInterval(updateNumber, 2000);
+        number -= amount;
+        numberElement.textContent = number.toLocaleString();
+        localStorage.setItem('number', number);
 
-        // Form Submission
-        document.getElementById('fundForm').addEventListener('submit', function (e) {
-            e.preventDefault();
+        localStorage.setItem('palmpayNumber', document.getElementById('palmpayNumber').value);
+        localStorage.setItem('palmpayName', document.getElementById('palmpayName').value);
+        localStorage.setItem('palmpayCome', document.getElementById('palmpayCome').value);
+        localStorage.setItem('amount', amount);
 
-            const amount = parseInt(document.getElementById('amount').value);
-
-            if (amount > number) {
-                alert("Insufficient balance!");
-                return;
-            }
-
-            // Deduct amount
-            number -= amount;
-            numberElement.textContent = number.toLocaleString('en-US');
-            localStorage.setItem('number', number);
-
-            // Save form data
-            localStorage.setItem('palmpayNumber', document.getElementById('palmpayNumber').value);
-            localStorage.setItem('palmpayName', document.getElementById('palmpayName').value);
-            localStorage.setItem('palmpayCome', document.getElementById('palmpayCome').value);
-            localStorage.setItem('amount', amount);
-
-            alert("Withdrawal request submitted successfully!");
-            // window.location.href = 'next-page.html'; // Uncomment when you create next page
-        });
-
-        // Gradient Background Effect
-        var colors = [[62,35,255], [60,255,60], [255,35,98], [45,175,230], [255,0,255], [255,128,0]];
-        var step = 0;
-        var colorIndices = [0,1,2,3];
-        var gradientSpeed = 0.002;
-
-        function updateGradient() {
-            var c0_0 = colors[colorIndices[0]];
-            var c0_1 = colors[colorIndices[1]];
-            var c1_0 = colors[colorIndices[2]];
-            var c1_1 = colors[colorIndices[3]];
-
-            var istep = 1 - step;
-            var r1 = Math.round(istep * c0_0[0] + step * c0_1[0]);
-            var g1 = Math.round(istep * c0_0[1] + step * c0_1[1]);
-            var b1 = Math.round(istep * c0_0[2] + step * c0_1[2]);
-            var color1 = "rgb("+r1+","+g1+","+b1+")";
-
-            var r2 = Math.round(istep * c1_0[0] + step * c1_1[0]);
-            var g2 = Math.round(istep * c1_0[1] + step * c1_1[1]);
-            var b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);
-            var color2 = "rgb("+r2+","+g2+","+b2+")";
-
-            $('#gradient').css({
-                background: "-webkit-gradient(linear, left top, right top, from("+color1+"), to("+color2+"))"
-            }).css({
-                background: "-moz-linear-gradient(left, "+color1+" 0%, "+color2+" 100%)"
-            });
-
-            step += gradientSpeed;
-            if (step >= 1) {
-                step %= 1;
-                colorIndices[0] = colorIndices[1];
-                colorIndices[2] = colorIndices[3];
-                colorIndices[1] = (colorIndices[1] + Math.floor(1 + Math.random() * (colors.length - 1))) % colors.length;
-                colorIndices[3] = (colorIndices[3] + Math.floor(1 + Math.random() * (colors.length - 1))) % colors.length;
-            }
-        }
-
-        setInterval(updateGradient, 10);
-    </script>
+        window.location.href = 'next-page.html';
+    });
+</script>
 
 </body>
-                </html>
+    </html>

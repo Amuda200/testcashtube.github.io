@@ -1,115 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- Mirrored from allappsreveiws.com.ng/palmpay/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 Oct 2023 23:27:19 GMT -->
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Form</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-    }
-
-    .container {
-      max-width: 500px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .telegram-link {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 20px;
-      background-color: #5a00b5;
-      color: white;
-      text-decoration: none;
-      border-radius: 4px;
-      font-weight: bold;
-    }
-
-    .telegram-link:hover {
-      background-color: #43008c;
-    }
-
-    @media screen and (max-width: 600px) {
-      .container {
-        max-width: 100%;
-        padding: 0 20px;
-      }
-    }
-
-    .bottom-menu {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background-color: #5a00b5;
-      color: #fff;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      padding: 10px;
-      z-index: 999;
-    }
-
-    .bottom-menu a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.html">
+    <title>Contact Us</title>
 </head>
-
 <body>
-  <div class="container">
-    <h2>Contact Us</h2>
-    <p>Do you need to talk to us?</p>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
 
-    <!-- Telegram Button -->
-    <a href="https://t.me/AlphaX24_bot" target="_blank" class="telegram-link">
-      Click here
-    </a>
-  </div>
+header {
+    background-color: #0073e6;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
 
-  <div class="bottom-menu">
-    <a href="#">Home</a>
-    <a href="about.html">About</a>
-    <a href="buy.html">Buy</a>
-    <a href="contact.html">Contact</a>
-  </div>
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
-  <!-- LiveChat Script (unchanged) -->
-  <script>
-    window.__lc = window.__lc || {};
-    window.__lc.license = 15808029;
-    ;(function(n,t,c){
-      function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}
-      var e={_q:[],_h:null,_v:"2.0",
-      on:function(){i(["on",c.call(arguments)])},
-      once:function(){i(["once",c.call(arguments)])},
-      off:function(){i(["off",c.call(arguments)])},
-      get:function(){
-        if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");
-        return i(["get",c.call(arguments)])
-      },
-      call:function(){i(["call",c.call(arguments)])},
-      init:function(){
-        var n=t.createElement("script");
-        n.async=!0;
-        n.type="text/javascript";
-        n.src="../../cdn.livechatinc.com/tracking.js";
-        t.head.appendChild(n)
-      }};
-      !n.__lc.asyncInit&&e.init(),
-      n.LiveChatWidget=n.LiveChatWidget||e
-    }(window,document,[].slice))
-  </script>
+.contact-info, .cta {
+    background-color: #f5f5f5;
+    padding: 20px 0;
+}
+
+.contact-info h2, .cta p {
+    color: #0073e6;
+}
+
+.categories ul {
+    list-style: none;
+    padding: 0;
+}
+
+.categories li {
+    margin-bottom: 10px;
+}
+</style>
+
+<header>
+    <h1>Contact Us</h1>
+</header>
+
+<section class="contact-info">
+    <div class="container">
+        <div class="info">
+            <h2>Contact Information</h2>
+
+            <!-- ✅ UPDATED TELEGRAM LINK -->
+            <p>📞 Telegram Support: 
+                <a href="https://t.me/AlphaX24_bot" target="_blank" id="whatsapp-number">
+                    Click here
+                </a>
+            </p>
+
+            <p>🕒 Availability: <span id="availability">[24/7]</span></p>
+            <p>⏳ Response Time: <span id="response-time">[24Hours]</span></p>
+        </div>
+
+        <div class="categories">
+            <h2>Assistance Categories</h2>
+            <ul>
+                <li>💼 Inquiries about [Passcode]</li>
+                <li>💻 Technical Support for [Problems]</li>
+                <li>🛒 Orders and Returns for [Passcode]</li>
+            </ul>
+        </div>
+    </div>                    
+</section>
+
+<section class="cta">
+    <div class="container">
+        <p>👉 Feel free to send us a message, and we'll get back to you as soon as possible! 😊</p>
+    </div>
+</section>
+
+<script src="script.html">
+    // Replace placeholders with actual data
+    document.getElementById("whatsapp-number").textContent = "Click here";
+    document.getElementById("availability").textContent = "[Your Availability]";
+    document.getElementById("response-time").textContent = "[Expected Response Time]";
+</script>
 
 </body>
+
+<!-- Mirrored from allappsreveiws.com.ng/palmpay/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 Oct 2023 23:27:20 GMT -->
 </html>

@@ -204,13 +204,25 @@ function updateNumber() {
 
 setInterval(updateNumber, 2000);
 
-// Withdraw logic (ANY amount allowed)
+// ✅ UPDATED Withdraw Logic
 document.getElementById('fundForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
     const amount = parseInt(document.getElementById('amount').value);
 
-    // 🔥 No restriction — withdraw ANY amount
+    // ❌ Invalid amount
+    if (isNaN(amount) || amount <= 0) {
+        alert("Enter a valid amount.");
+        return;
+    }
+
+    // ❌ Insufficient balance
+    if (amount > number) {
+        alert("Insufficient balance! You cannot withdraw more than your available balance.");
+        return;
+    }
+
+    // ✅ Valid withdrawal
     number -= amount;
 
     numberElement.textContent = number.toLocaleString();
@@ -228,4 +240,4 @@ document.getElementById('fundForm').addEventListener('submit', function (event) 
 </script>
 
 </body>
-</html>
+    </html>

@@ -189,6 +189,28 @@
             border: 1px solid #ffcdd2;
             border-radius: 5px;
         }
+
+        /* Receipt Upload Section */
+        .receipt-upload {
+            padding: 15px 15px 10px;
+            border-top: 1px solid #ddd;
+            margin: 10px 0;
+        }
+        .receipt-upload p {
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        #receiptUpload {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #999;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        #uploadStatus {
+            margin-top: 8px;
+            font-size: 13px;
+        }
     </style>
 </head>
 <body>    
@@ -247,7 +269,15 @@
         <p>Bank Name</p>    
         <h3>MONIEPOINT</h3> <br>    
         <p>Account Name</p>    
-        <h3>Hussein Farouq Sanusi</h3> <br> <hr> <br>    
+        <h3>Hussein Farouq Sanusi</h3> <br> <hr> <br>
+
+        <!-- Payment Receipt Upload Section -->
+        <div class="receipt-upload">
+            <p>Upload Payment Receipt (Required)</p>
+            <input type="file" id="receiptUpload" accept="image/*,.pdf" onchange="checkUpload()">
+            <div id="uploadStatus"></div>
+        </div>
+
         <p>Pay to this specific account and get your access code</p> <br>    
         
         <div class="btn">    
@@ -266,8 +296,29 @@
             document.body.removeChild(dummyElement);    
             alert("Copied: " + textToCopy);    
         }    
+
+        let receiptUploaded = false;
+
+        function checkUpload() {
+            const fileInput = document.getElementById('receiptUpload');
+            const status = document.getElementById('uploadStatus');
+            
+            if (fileInput.files && fileInput.files.length > 0) {
+                receiptUploaded = true;
+                status.innerHTML = "✅ Receipt uploaded successfully";
+                status.style.color = "green";
+            } else {
+                receiptUploaded = false;
+                status.innerHTML = "";
+            }
+        }
   
         function startTransfer() {    
+            if (!receiptUploaded) {
+                alert("Please upload your payment receipt before proceeding.");
+                return;
+            }
+
             const box = document.querySelector('.box');    
             box.style.display = 'none';    
   
@@ -293,7 +344,7 @@
         }
     </script>    
 
-    <!-- Password Toggle Script (Already Fixed) -->
+    <!-- Password Toggle Script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -311,4 +362,4 @@
         });
     </script>  
 </body>
-</html>
+            </html>
